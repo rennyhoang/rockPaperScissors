@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function computerPlay(){
+      var choices = ['Rock', 'Paper', 'Scissors'];
+      return choices[Math.floor(Math.random() * choices.length)];
+    }
+
+    function playRound(){
+      playerSelection = prompt("Pick 'paper', 'rock', or 'scissors'")
+      computerSelection = computerPlay()
+
+      playerSelection = playerSelection.toLowerCase()
+      computerSelection = computerSelection.toLowerCase()
+
+      if (playerSelection == computerSelection){
+        return "You Tied! Both of you picked " + playerSelection
+      }
+
+      else if (playerSelection == 'rock' && computerSelection == 'paper'){
+        return "You Lost! Paper beats Rock"
+      }
+
+      else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+        return "You Win! Rock beats Scissors"
+      }
+
+      else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+        return "You Lost! Rock beats Scissors"
+      }
+
+      else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+        return "You Win! Scissors beats Paper"
+      }
+
+      else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        return "You Lost! Scissors beats Paper"
+      }
+
+      else{
+        return "You Win! Paper beats Rock"
+      }
+    }
+
+    function game(){
+      var usrScore = 0;
+      var compScore = 0;
+
+      for(var i = 0; i < 5; i++){
+        var result = playRound();
+        if (result.slice(0, 5) == 'You W'){
+          usrScore += 1;
+          console.log('You Won!')
+        }
+        else if (result.slice(0, 5) == 'You L'){
+          compScore += 1;
+          console.log('You Lost!')
+        }
+        else{
+          usrScore += 1;
+          compScore += 1;
+          console.log('You Tied!')
+        }
+
+        console.log(usrScore, compScore);
+      }
+
+      if (usrScore > compScore){
+        console.log('You won the game!')
+      }
+      else if (compScore > usrScore){
+        console.log('You lost the game!')
+      }
+      else{
+        console.log('The game was tied!')
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Rock Paper Scissors</h1>
+</body>
+</html>
