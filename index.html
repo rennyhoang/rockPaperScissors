@@ -24,6 +24,7 @@
   
       if (playerSelection == computerSelection){
         document.getElementById('game-status').innerHTML = "You Tied! Both of you picked " + playerSelection
+        score();
         return "You Tied! Both of you picked " + playerSelection
       }
   
@@ -31,6 +32,7 @@
         compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Paper beats Rock"
         document.getElementById('compScore').innerHTML = compScore.toString();
+        score();
         return "You Lost! Paper beats Rock"
       }
   
@@ -38,6 +40,7 @@
         usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Rock beats Scissors"
         document.getElementById('usrScore').innerHTML = usrScore.toString();
+        score();
         return "You Win! Rock beats Scissors"
       }
   
@@ -45,6 +48,7 @@
         compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Rock beats Scissors"
         document.getElementById('compScore').innerHTML = compScore.toString();
+        score();
         return "You Lost! Rock beats Scissors"
       }
   
@@ -52,6 +56,7 @@
         usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Scissors beats Paper"
         document.getElementById('usrScore').innerHTML = usrScore.toString();
+        score();
         return "You Win! Scissors beats Paper"
       }
   
@@ -59,6 +64,7 @@
         compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Scissors beats Paper"
         document.getElementById('compScore').innerHTML = compScore.toString();
+        score();
         return "You Lost! Scissors beats Paper"
       }
   
@@ -66,52 +72,34 @@
         usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Paper beats Rock"
         document.getElementById('usrScore').innerHTML = usrScore.toString();
+        score();
         return "You Win! Paper beats Rock"
-      }
-    }
-  
-    function game(){
-      var usrScore = 0;
-      var compScore = 0;
-  
-      for(var i = 0; i < 5; i++){
-        var result = playRound();
-        if (result.slice(0, 5) == 'You W'){
-          usrScore += 1;
-          console.log('You Won!')
-        }
-        else if (result.slice(0, 5) == 'You L'){
-          compScore += 1;
-          console.log('You Lost!')
-        }
-        else{
-          usrScore += 1;
-          compScore += 1;
-          console.log('You Tied!')
-        }
-  
-        console.log(usrScore, compScore);
-      }
-  
-      if (usrScore > compScore){
-        console.log('You won the game!')
-      }
-      else if (compScore > usrScore){
-        console.log('You lost the game!')
-      }
-      else{
-        console.log('The game was tied!')
       }
     }
 
     function score(){
-
+      if (usrScore + compScore >= 5 && usrScore != compScore) {
+        if (usrScore > compScore){
+          document.getElementById('game-status').innerHTML = "You won the game " + usrScore.toString() + " to " + compScore.toString()
+          usrScore = 0;
+          document.getElementById('usrScore').innerHTML = usrScore.toString();
+          compScore = 0;
+          document.getElementById('compScore').innerHTML = compScore.toString();
+        }
+        else {
+          document.getElementById('game-status').innerHTML = "You lost the game " + usrScore.toString() + " to " + compScore.toString()
+          usrScore = 0;
+          document.getElementById('usrScore').innerHTML = usrScore.toString();
+          compScore = 0;
+          document.getElementById('compScore').innerHTML = compScore.toString();
+        }
+      }
     }
   </script>
 
 </head>
 <body>
-  <h1 class="title">Rock Paper Scissors</h1>
+  <h1 class="page-header title">Rock Paper Scissors</h1>
   <div class="score-container">
     <h2 id="usrScore">0&nbsp;</h2>
     <h2>&nbsp;- &nbsp;</h2>
@@ -120,9 +108,9 @@
   <h2 class="title"id="game-status">Start a game</h2>
   <div class="game-container">
     <div class="usr-container">
-      <button id="rock" onclick="playRound('rock')">Rock</button>
-      <button id="paper" onclick="playRound('paper')">Paper</button>
-      <button id="scissors" onclick="playRound('scissors')">Scissors</button>
+      <button type="button" class="btn btn-default"id="rock" onclick="playRound('rock')">Rock</button>
+      <button type="button" class="btn btn-default"id="paper" onclick="playRound('paper')">Paper</button>
+      <button type="button" class="btn btn-default"id="scissors" onclick="playRound('scissors')">Scissors</button>
     </div>
     <div class="comp-container">
 
