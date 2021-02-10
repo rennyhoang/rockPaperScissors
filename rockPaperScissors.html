@@ -9,6 +9,8 @@
   <title>Document</title>
 
   <script>
+    var usrScore = 0;
+    var compScore = 0;
     function computerPlay(){
       var choices = ['Rock', 'Paper', 'Scissors'];
       return choices[Math.floor(Math.random() * choices.length)];
@@ -26,32 +28,44 @@
       }
   
       else if (playerSelection == 'rock' && computerSelection == 'paper'){
+        compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Paper beats Rock"
+        document.getElementById('compScore').innerHTML = compScore.toString();
         return "You Lost! Paper beats Rock"
       }
   
       else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+        usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Rock beats Scissors"
+        document.getElementById('usrScore').innerHTML = usrScore.toString();
         return "You Win! Rock beats Scissors"
       }
   
       else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+        compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Rock beats Scissors"
+        document.getElementById('compScore').innerHTML = compScore.toString();
         return "You Lost! Rock beats Scissors"
       }
   
       else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+        usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Scissors beats Paper"
+        document.getElementById('usrScore').innerHTML = usrScore.toString();
         return "You Win! Scissors beats Paper"
       }
   
       else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        compScore += 1;
         document.getElementById('game-status').innerHTML = "You Lost! Scissors beats Paper"
+        document.getElementById('compScore').innerHTML = compScore.toString();
         return "You Lost! Scissors beats Paper"
       }
   
       else{
+        usrScore += 1;
         document.getElementById('game-status').innerHTML = "You Win! Paper beats Rock"
+        document.getElementById('usrScore').innerHTML = usrScore.toString();
         return "You Win! Paper beats Rock"
       }
     }
@@ -89,11 +103,20 @@
         console.log('The game was tied!')
       }
     }
+
+    function score(){
+
+    }
   </script>
 
 </head>
 <body>
   <h1 class="title">Rock Paper Scissors</h1>
+  <div class="score-container">
+    <h2 id="usrScore">0&nbsp;</h2>
+    <h2>&nbsp;- &nbsp;</h2>
+    <h2 id="compScore">0</h2>
+  </div>
   <h2 class="title"id="game-status">Start a game</h2>
   <div class="game-container">
     <div class="usr-container">
