@@ -1,5 +1,7 @@
 # rockPaperScissors
 
+## Live demo: https://rennt704.github.io/rockPaperScissors/
+
 ### how it works
 
 - The game is played against a bot, best out of five
