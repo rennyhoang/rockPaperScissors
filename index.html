@@ -81,6 +81,7 @@
       if (usrScore + compScore >= 5 && usrScore != compScore) {
         if (usrScore > compScore){
           document.getElementById('game-status').innerHTML = "You won the game " + usrScore.toString() + " to " + compScore.toString()
+          document.getElementById('restart').innerHTML = "Press a button to restart"
           usrScore = 0;
           document.getElementById('usrScore').innerHTML = usrScore.toString();
           compScore = 0;
@@ -88,11 +89,15 @@
         }
         else {
           document.getElementById('game-status').innerHTML = "You lost the game " + usrScore.toString() + " to " + compScore.toString()
+          document.getElementById('restart').innerHTML = "Press a button to restart"
           usrScore = 0;
           document.getElementById('usrScore').innerHTML = usrScore.toString();
           compScore = 0;
           document.getElementById('compScore').innerHTML = compScore.toString();
         }
+      }
+      else{
+        document.getElementById('restart').innerHTML = ""
       }
     }
   </script>
@@ -105,15 +110,13 @@
     <h2>&nbsp;- &nbsp;</h2>
     <h2 id="compScore">0</h2>
   </div>
-  <h2 class="title"id="game-status">Start a game</h2>
+  <h2 class="title"id="game-status">Click a button to start the game</h2>
+  <h2 class="title"id="restart"></h2>
   <div class="game-container">
     <div class="usr-container">
       <button type="button" class="btn btn-default"id="rock" onclick="playRound('rock')">Rock</button>
       <button type="button" class="btn btn-default"id="paper" onclick="playRound('paper')">Paper</button>
       <button type="button" class="btn btn-default"id="scissors" onclick="playRound('scissors')">Scissors</button>
-    </div>
-    <div class="comp-container">
-
     </div>
   </div>
 </body>
