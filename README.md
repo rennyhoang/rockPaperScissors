@@ -1,6 +1,6 @@
 # rockPaperScissors
 
-## Live demo: https://rennt704.github.io/rockPaperScissors/
+## Live demo: https://rennyhoang.github.io/rockPaperScissors/
 
 ### how it works
 
